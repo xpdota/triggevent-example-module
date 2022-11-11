@@ -15,7 +15,16 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Check out the addon first
       - uses: actions/checkout@v2
+      # Check out triggevent so we can install the deps into the local maven repo
+      - uses: actions/checkout@v2
+        with:
+          repository: 'xpdota/event-trigger'
+          # You can set this to 'stable' to build against the stable release build, or 'master' to build against
+          # the bleeding edge.
+          ref: 'stable'
+          path: 'triggevent-base'
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
@@ -26,6 +35,11 @@ jobs:
         uses: s4u/setup-maven-action@v1.4.0
         with:
           java-version: 17
+      - name: Build deps
+        uses: gabrielbb/xvfb-action@v1
+        working-directory: ./triggevent-base
+        with:
+          run: mvn -T4 clean install -DskipTests
       - name: Build with Maven
         uses: gabrielbb/xvfb-action@v1
         with:
