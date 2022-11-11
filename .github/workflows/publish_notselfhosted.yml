@@ -45,8 +45,9 @@ jobs:
       - name: Build deps
         uses: gabrielbb/xvfb-action@v1.6
         with:
-          run: mvn -T4 clean install -DskipTests
-          #working-directory: ./triggevent-base
+          run: |
+            cd triggevent-base
+            mvn -T4 clean install -DskipTests
       - name: Build with Maven
         uses: gabrielbb/xvfb-action@v1.6
         with:
