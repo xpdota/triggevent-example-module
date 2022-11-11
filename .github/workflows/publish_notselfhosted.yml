@@ -35,11 +35,11 @@ jobs:
         uses: s4u/setup-maven-action@v1.4.0
         with:
           java-version: 17
-      - name: Build deps
-        uses: gabrielbb/xvfb-action@v1
-        with:
-          working-directory: ./triggevent-base
-          run: mvn -T4 clean install -DskipTests
+#      - name: Build deps
+#        uses: gabrielbb/xvfb-action@v1
+#        with:
+#          working-directory: ./triggevent-base
+#          run: mvn -T4 clean install -DskipTests
       - name: Build with Maven
         uses: gabrielbb/xvfb-action@v1
         with:
