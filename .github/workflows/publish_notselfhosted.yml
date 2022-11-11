@@ -46,7 +46,7 @@ jobs:
         uses: gabrielbb/xvfb-action@v1.6
         with:
           run: mvn -T4 clean install -DskipTests
-          working-directory: ./triggevent-base
+          #working-directory: ./triggevent-base
       - name: Build with Maven
         uses: gabrielbb/xvfb-action@v1.6
         with:
