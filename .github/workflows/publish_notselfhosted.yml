@@ -67,14 +67,15 @@ jobs:
 
       - name: Copy release files
         # Addons should use the 'addon' directory for their JARs, though it's fine to use the 'deps' dir to
-        # hold actual dependencies
+        # hold actual dependencies.
+        # If you go outside of these two dirs, it will *appear* to work, but the problem is that if those files are
+        # removed or renamed on the remote side, they will NOT be deleted!
         run: |
           pushd target
           mkdir -p publish_data/addon/
           mv *.jar publish_data/addon/
           cd publish_data
           md5sum addon/*.jar > manifest
-          cp -r *.jar publish_data/
           popd
 # If you need dependencies, you will need use maven-dependency-plugin to copy the deps to a directory and
 # then add them to the above script. DO NOT copy everything like the main triggevent github actions do - you will
