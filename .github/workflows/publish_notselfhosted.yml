@@ -68,8 +68,11 @@ jobs:
       - name: Copy release files
         run: |
           pushd target
-          mkdir -p publish_data/
-          md5sum *.jar > publish_data/manifest
+        # Addons should use the 'addon' directory for their JARs, though it's fine to use the 'deps' dir to
+        # hold actual dependencies
+          mkdir -p publish_data/addon/
+          mv *.jar publish_data/addon/
+          md5sum addon/*.jar > publish_data/manifest
           cp -r *.jar publish_data/
           popd
 # If you need dependencies, you will need use maven-dependency-plugin to copy the deps to a directory and
