@@ -26,6 +26,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: maven
+
       - name: Debug info
         run: |
           pwd
@@ -35,6 +36,7 @@ jobs:
         uses: s4u/setup-maven-action@v1.4.0
         with:
           java-version: 17
+
       - name: Debug info
         run: |
           pwd
@@ -49,10 +51,6 @@ jobs:
           # the bleeding edge.
           ref: 'stable'
           path: './triggevent-base'
-      - name: Debug info
-        run: |
-          pwd
-          ls -la
 
       - name: Build deps
         uses: gabrielbb/xvfb-action@v1.6
@@ -61,10 +59,12 @@ jobs:
           working-directory: triggevent-base
           run: |
             mvn -T8 clean install -DskipTests
+
       - name: Build with Maven
         uses: gabrielbb/xvfb-action@v1.6
         with:
           run: mvn -T4 clean package
+
       - name: Copy release files
         run: |
           pushd target
@@ -80,10 +80,11 @@ jobs:
 #      - name: Copy docs
 #        run: |
 #          mv target/site/apidocs ./launcher/target/windows/publish_data/javadoc
+
       - name: Deploy release files
         uses: JamesIves/github-pages-deploy-action@4.1.7
 
         with:
-          folder: ./launcher/target/publish_data
+          folder: ./target/publish_data
           branch: gh-pages
           target-folder: ${{ github.ref_name }}
