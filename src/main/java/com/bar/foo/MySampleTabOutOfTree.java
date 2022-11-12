@@ -1,12 +1,12 @@
 package com.bar.foo;
 
+import gg.xp.reevent.events.EventContext;
 import gg.xp.reevent.events.InitEvent;
 import gg.xp.reevent.scan.HandleEvents;
 import gg.xp.reevent.scan.ScanMe;
 import gg.xp.xivsupport.gui.TitleBorderFullsizePanel;
 import gg.xp.xivsupport.gui.extra.PluginTab;
 
-import javax.naming.event.EventContext;
 import javax.swing.*;
 import java.awt.*;
 
