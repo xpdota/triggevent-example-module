@@ -60,7 +60,7 @@ jobs:
           # Can't just use working-directory: https://github.com/GabrielBB/xvfb-action/issues/32
           working-directory: triggevent-base
           run: |
-            mvn -T4 clean install -DskipTests
+            mvn -T8 clean install -DskipTests
       - name: Build with Maven
         uses: gabrielbb/xvfb-action@v1.6
         with:
@@ -84,6 +84,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.7
 
         with:
-          folder: ./launcher/target/windows/publish_data
+          folder: ./launcher/target/publish_data
           branch: gh-pages
           target-folder: ${{ github.ref_name }}
