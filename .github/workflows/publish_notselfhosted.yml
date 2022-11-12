@@ -73,7 +73,7 @@ jobs:
           mkdir -p publish_data/addon/
           mv *.jar publish_data/addon/
           cd publish_data
-          md5sum addon/*.jar > publish_data/manifest
+          md5sum addon/*.jar > manifest
           cp -r *.jar publish_data/
           popd
 # If you need dependencies, you will need use maven-dependency-plugin to copy the deps to a directory and
