@@ -14,6 +14,7 @@ import java.awt.*;
 public class MySampleTabOutOfTree implements PluginTab {
 
 	private JLabel initLabel;
+	private volatile boolean initReceived;
 
 	@Override
 	public String getTabName() {
@@ -24,15 +25,20 @@ public class MySampleTabOutOfTree implements PluginTab {
 	public Component getTabContents() {
 		TitleBorderFullsizePanel panel = new TitleBorderFullsizePanel("My Sample Plugin Tab");
 		panel.add(new JLabel("It Works! (Out of tree version)"));
-		initLabel = new JLabel("No Init Event Received Yet...");
+		initLabel = new JLabel();
 		panel.add(initLabel);
+		recalc();
 		return panel;
 	}
 
+	private void recalc() {
+		initLabel.setText(initReceived ? "Init Event Received!" : "No Init Event Received Yet...");
+	}
+
+
 	@HandleEvents
 	public void handleEvents(EventContext context, InitEvent init) {
-		if (init != null) {
-			initLabel.setText("Init Event Received!");
-		}
+		initReceived = true;
+		recalc();
 	}
 }
