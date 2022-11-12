@@ -16,6 +16,10 @@ jobs:
       contents: write
     steps:
 
+      # Check out the addon first
+      - uses: actions/checkout@v2
+        name: Check out the addon
+
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
@@ -36,9 +40,6 @@ jobs:
           pwd
           ls -la
 
-      # Check out the addon first
-      - uses: actions/checkout@v2
-        name: Check out the addon
       # Check out triggevent so we can install the deps into the local maven repo
       - uses: actions/checkout@v2
         name: Check out Triggevent
