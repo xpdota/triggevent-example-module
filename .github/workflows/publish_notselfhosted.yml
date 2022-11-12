@@ -66,10 +66,10 @@ jobs:
           run: mvn -T4 clean package
 
       - name: Copy release files
-        run: |
-          pushd target
         # Addons should use the 'addon' directory for their JARs, though it's fine to use the 'deps' dir to
         # hold actual dependencies
+        run: |
+          pushd target
           mkdir -p publish_data/addon/
           mv *.jar publish_data/addon/
           md5sum addon/*.jar > publish_data/manifest
