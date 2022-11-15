@@ -32,7 +32,9 @@ public class MySampleTabOutOfTree implements PluginTab {
 	}
 
 	private void recalc() {
-		initLabel.setText(initReceived ? "Init Event Received!" : "No Init Event Received Yet...");
+		if (initLabel != null) {
+			initLabel.setText(initReceived ? "Init Event Received!" : "No Init Event Received Yet...");
+		}
 	}
 
 
