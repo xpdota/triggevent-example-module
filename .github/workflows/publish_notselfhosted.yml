@@ -73,6 +73,7 @@ jobs:
           mv *.jar publish_data/
           cd publish_data
           md5sum *.jar > manifest
+          cp ../../INFO.json ./INFO
           popd
 # If you need dependencies, you will need use maven-dependency-plugin to copy the deps to a directory and
 # then add them to the above script. DO NOT copy everything like the main triggevent github actions do - you will
