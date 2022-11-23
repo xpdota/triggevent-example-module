@@ -38,13 +38,11 @@ the addon management screen to install the addon.
 You should only include your own code and dependencies which are not already included in the base Triggevent.
 Everything must be in JARs.
 
-Triggevent's UI for managing addons is still under construction, but you can preview the backend functionality by doing
-the following:
+To install the addon, do the following in Triggevent (must be a proper installation, not IDE):
 
-1. Switch to the addon-manager branch.
-2. Navigate to Plugin Settings > Manage Addons
-3. Click "Add From URL" and enter your INFO url (e.g. `https://xpdota.github.io/triggevent-example-module/master/INFO`)
-4. Go to Updates > Check for Updates and Restart
+1. Navigate to Plugin Settings > Manage Addons
+2. Click "Add From URL" and enter your INFO url (e.g. `https://xpdota.github.io/triggevent-example-module/master/INFO`)
+3. Go to Updates > Check for Updates and Restart
 
 For example, if you were to add this addon (`https://xpdota.github.io/triggevent-example-module/master/INFO`), and
 run the updater, you would see a tab like this:
