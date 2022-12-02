@@ -55,3 +55,8 @@ The JAR file is placed in `addon/test-addon` (relative to the install dir).
 
 This project comes with an IntelliJ run profile, simply called 'run', which should launch
 Triggevent with your addon loaded.
+
+## Maven Information
+
+By default, your project uses the top-level triggevent pom as its parent. This is not required, so feel free to remove it
+if needed. However, it helps ensure dependency versions are in sync, and reduces boilerplate.
