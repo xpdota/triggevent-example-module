@@ -6,7 +6,7 @@ It includes all necessary build scripts and Github workflows to publish it.
 
 To create and publish your own module, make your own fork or copy of this project, and do the following:
 
-1. Clone or copy this project.
+1. Clone or copy this project. I recommend a simple copy so that you don't get the entire git history.
 2. In the pom.xml, change the artifact ID to a good and unique name for your project. You may want to add your nickname to make sure it's unique (e.g. 'johns-ucob-triggers').
 3. Modify INFO.json accordingly.
     - name: Human-readable name
