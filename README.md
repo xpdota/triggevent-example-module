@@ -22,6 +22,8 @@ To create and publish your own module, make your own fork or copy of this projec
       part of your own project.
       If you do this, you may wish to hide Triggevent's git root in File -> Settings -> Version Control -> Directory 
       Mappings by changing the directory's VCS to 'none'.
+      It has been reported that sometimes, IntelliJ will mark the various submodules as 'ignored'. To fix this, select all
+      of the ignored modules in the maven panel (using shift-click or ctrl-click), then right click and 'Unignore Projects'.
 
 6. In your Github project under Settings -> Actions -> General, ensure that Github actions are allowed.
 7. After you commit and push once, make sure the Github Action workflow was successful.
